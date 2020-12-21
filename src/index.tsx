@@ -11,13 +11,14 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FontFaceObserver from 'fontfaceobserver';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './app';
+// import reportWebVitals from './reportWebVitals';
 
 // Default Styles Cross-Browser
 import 'sanitize.css/sanitize.css';
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
+import { StylesProvider } from '@material-ui/core/styles';
 
 // Observe loading of Inter
 const openSansObserver = new FontFaceObserver('Inter', {});
@@ -30,11 +31,13 @@ openSansObserver.load().then(() => {
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
 ReactDOM.render(
-  <ThemeProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ThemeProvider>,
+  <StylesProvider injectFirst>
+    <ThemeProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ThemeProvider>
+  </StylesProvider>,
 
   MOUNT_NODE,
 );

@@ -8,7 +8,8 @@ const colors = {
   lightgray: '#f5f5fb',
   textgray: '#c7c7da',
   black: '#2f2f3a',
-  lightblack: '#3A3A3A',
+  lightblack: 'rgb(66, 66, 66, 0.2)',
+  lightBlack2: 'rgb(66, 66, 66)',
   red: '#ff6471',
   rose: '#f7e5e9',
   green: '#2ecc71',
@@ -16,24 +17,23 @@ const colors = {
 };
 
 const lightTheme = {
-  primary: 'rgba(215,113,88,1)',
-  text: 'rgba(58,52,51,1)',
-  textSecondary: 'rgba(58,52,51,0.7)',
-  background: 'rgba(255,255,255,1)',
-  backgroundVariant: 'rgba(251,249,249,1)',
-  border: 'rgba(58,52,51,0.12)',
-  borderLight: 'rgba(58,52,51,0.05)',
+  primary: colors.blue,
+  text: colors.black,
+  textSecondary: colors.lightgray,
+  background: colors.lightgray,
+  border: colors.lightblack,
+  borderLight: colors.lightBlack2,
   colors: { ...colors },
 };
 
 const darkTheme: Theme = {
-  primary: 'rgba(220,120,95,1)',
-  text: 'rgba(241,233,231,1)',
-  textSecondary: 'rgba(241,233,231,0.6)',
-  background: 'rgba(0,0,0,1)',
-  backgroundVariant: 'rgba(28,26,26,1)',
-  border: 'rgba(241,233,231,0.15)',
-  borderLight: 'rgba(241,233,231,0.05)',
+  primary: colors.darkblue,
+  text: colors.white,
+  textSecondary: colors.lightgray,
+  background: colors.lightBlack2,
+
+  border: colors.lightgray,
+  borderLight: colors.textgray,
   colors: { ...colors },
 };
 
