@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TypographyMUI from '@material-ui/core/Typography';
 import styled from 'styled-components';
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { PageWrapper } from '../PageWrapper/PageWrapper';
 import { Typography } from '../Typography/Typography';
 import { Switch } from '../Switch/Switch';
 import { StyleConstants } from 'styles/StyleConstants';
