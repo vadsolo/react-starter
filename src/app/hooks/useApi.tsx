@@ -1,6 +1,6 @@
 import { RequestError, RequestStates } from './types';
 import { useState, useEffect, useCallback } from 'react';
-import { RequestService, AppRequest } from 'services/axios.service';
+import { RequestService, AppRequest } from 'services/request.service';
 
 interface useApiState<T = any> {
   requestState: RequestStates;

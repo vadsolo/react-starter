@@ -3,7 +3,7 @@ import {
   RequestService,
   RequestMethod,
   AppRequest,
-} from 'services/axios.service';
+} from 'services/request.service';
 import { RequestError, RequestStates } from './types';
 
 interface UseRequest {

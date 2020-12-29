@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GlobalStyle } from 'styles/GlobalStyles';
 import Navbar from './components/Navbar/Navbar';
 import { PageWrapper } from './components/PageWrapper/PageWrapper';
