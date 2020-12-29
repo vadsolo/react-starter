@@ -6,7 +6,7 @@ import axios, {
 } from 'axios';
 
 export class RequestService {
-  axios: AxiosInstance;
+  private axios: AxiosInstance;
   constructor(baseURL: string) {
     this.axios = axios.create({
       baseURL,
@@ -25,13 +25,15 @@ export class RequestService {
   private handleError(err: AxiosError) {
     switch (err.response?.status) {
       case 401:
-        console.log('error', err.response?.status);
+        err.response.data.errors = [{ message: '401 Not Found' }];
         break;
       case 404:
-        console.log('error', err.response?.status);
+        err.response.data.errors = [{ message: '404 Not Found' }];
         break;
       default:
-        console.log('error', err.response?.status);
+        if (err.response) {
+          err.response.data.errors = [{ message: 'Something Went Wrong' }];
+        }
         break;
     }
     return Promise.reject(err);

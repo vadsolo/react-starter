@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   RequestService,
   RequestMethod,
   AppRequest,
 } from 'services/axios.service';
+import { RequestError, RequestStates } from './types';
 
 interface UseRequest {
   url: string;
@@ -14,17 +14,15 @@ interface UseRequest {
   baseURL?: string;
 }
 
-export const useRequest = ({
-  url,
-  method,
-  body,
-  onSuccess,
-  baseURL,
-}: UseRequest) => {
-  const [errors, setErrors] = useState<JSX.Element | null>(null);
+const useRequest = ({ url, method, body, onSuccess, baseURL }: UseRequest) => {
+  const [errors, setErrors] = useState<RequestError[] | null>(null);
+  const [requestState, setRequestState] = useState<RequestStates>(
+    RequestStates.LOADING,
+  );
 
-  const request = baseURL ? new RequestService(baseURL) : AppRequest;
-  const execRequest = async () => {
+  const execRequest = useCallback(async () => {
+    const request = baseURL ? new RequestService(baseURL) : AppRequest;
+    setRequestState(RequestStates.LOADING);
     try {
       const res = await request[method](url, body);
       setErrors(null);
@@ -32,21 +30,15 @@ export const useRequest = ({
       if (onSuccess) {
         onSuccess(res.data);
       }
-
+      setRequestState(RequestStates.SUCCESS);
       return res.data;
     } catch (error) {
-      setErrors(
-        <div className="alert alert-danger">
-          <h4>Ooops...</h4>
-          <ul className="my-0">
-            {error.response?.data?.errors?.map(error => {
-              return <li key={error.message}>{error.message}</li>;
-            })}
-          </ul>
-        </div>,
-      );
+      setRequestState(RequestStates.ERROR);
+      setErrors(error.response?.data?.errors);
     }
-  };
+  }, [url, method, body, onSuccess, baseURL]);
 
-  return { execRequest, errors };
+  return { execRequest, errors, requestState };
 };
+
+export default useRequest;
