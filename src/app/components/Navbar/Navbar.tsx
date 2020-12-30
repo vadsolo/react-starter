@@ -6,7 +6,7 @@ import { StyleConstants } from 'styles/StyleConstants';
 import styled from 'styled-components';
 
 const Wrapper = styled.header`
-  box-shadow: 0 1px 0 0 ${p => p.theme.borderLight};
+  box-shadow: 0 1px 0 0 ${p => p.theme.primaryBorder};
   height: ${StyleConstants.NAV_BAR_HEIGHT};
   display: flex;
   position: fixed;
