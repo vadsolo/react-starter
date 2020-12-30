@@ -8,19 +8,19 @@ export const Button = styled(ButtonMUI)`
   padding: 6px 12px;
   border: 1px solid;
   line-height: 1.5;
-  background-color: #0063cc;
-  border-color: #0063cc;
+  background-color: ${p => p.theme.primary};
+  border-color: ${p => p.theme.primary};
   &:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background-color: ${p => p.theme.primary};
+    border-color: ${p => p.theme.primaryBorder};
     box-shadow: none;
   }
   &:active {
     box-shadow: none;
-    background-color: #0062cc;
-    border-color: #005cbf;
+    background-color: ${p => p.theme.primary};
+    border-color: ${p => p.theme.primaryBorder};
   }
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem ${p => p.theme.primaryBorder};
   }
 `;

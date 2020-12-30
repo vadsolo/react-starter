@@ -1,40 +1,41 @@
-const colors = {
-  blue: '#5e81f4',
-  darkblue: '#4d4cac',
-  lightpurple: '#9698d6',
-  purple: '#6c63ff',
-  white: '#FFF',
-  lightergray: '#f5f5f7',
-  lightgray: '#f5f5fb',
-  textgray: '#c7c7da',
-  black: '#2f2f3a',
-  lightblack: 'rgb(66, 66, 66, 0.2)',
-  lightBlack2: 'rgb(66, 66, 66)',
-  red: '#ff6471',
-  rose: '#f7e5e9',
-  green: '#2ecc71',
-  yellow: '#f39c12',
-};
+import { colors } from './colors';
 
 const lightTheme = {
-  primary: colors.blue,
+  primary: colors.bluepurple[400],
+  secondary: colors.blue[200],
+
+  primaryBorder: colors.bluepurple[300],
+  secondaryBorder: colors.blue[100],
+
   text: colors.black,
-  textSecondary: colors.lightgray,
-  background: colors.lightgray,
-  border: colors.lightblack,
-  borderLight: colors.lightBlack2,
-  colors: { ...colors },
+  textSecondary: colors.white,
+
+  background: colors.lightgray[100],
+  boxBackground: colors.lightgray[300], // or 400,
+
+  inputBackground: colors.white,
+  inputBorder: colors.lightgray[500],
+  inputText: colors.gray[600],
+  inputPlaceholder: colors.lightgray[500],
 };
 
 const darkTheme: Theme = {
-  primary: colors.darkblue,
-  text: colors.white,
-  textSecondary: colors.lightgray,
-  background: colors.lightBlack2,
+  primary: colors.bluepurple[400],
+  secondary: colors.blue[200],
 
-  border: colors.lightgray,
-  borderLight: colors.textgray,
-  colors: { ...colors },
+  primaryBorder: colors.bluepurple[300],
+  secondaryBorder: colors.blue[100],
+
+  text: colors.white,
+  textSecondary: colors.black,
+
+  background: colors.black,
+  boxBackground: colors.gray[500], // or 500,
+
+  inputBackground: colors.gray[400],
+  inputBorder: colors.gray[500],
+  inputText: colors.white,
+  inputPlaceholder: colors.gray[100],
 };
 
 export type Theme = typeof lightTheme;

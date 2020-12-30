@@ -20,6 +20,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
+  p,h1,h2,h3,h4,h5 {
+    color: ${p => p.theme.text};
+  }
+
+
+
   p,
   label {
     line-height: 1.5em;

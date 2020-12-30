@@ -6,7 +6,7 @@ export const Input = styled(InputBase)`
   input {
     color: ${p => p.theme.text};
     position: 'relative';
-    border: 1px solid ${p => p.theme.border};
+    border: 1px solid ${p => p.theme.inputBorder};
     border-radius: 4px;
     padding: 10px 12px;
     transition: 0.3s box-shadow, border-color;
