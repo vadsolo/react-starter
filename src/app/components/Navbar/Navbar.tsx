@@ -1,35 +1,56 @@
 import React from 'react';
-
-import { Typography } from '../Typography/Typography';
 import { Switch } from '../Switch/Switch';
 import { StyleConstants } from 'styles/StyleConstants';
+import { PageWrapper } from '../PageWrapper/PageWrapper';
+import MainNav from '../Nav/Nav';
+import { Item } from '../Nav/Item';
+import Logo from '../Logo/Logo';
 import styled from 'styled-components';
 
 const Wrapper = styled.header`
-  box-shadow: 0 1px 0 0 ${p => p.theme.primaryBorder};
-  height: ${StyleConstants.NAV_BAR_HEIGHT};
-  display: flex;
-  position: fixed;
-  top: 0;
+  box-shadow: 0 2px 2px ${p => p.theme.primaryBorder};
   width: 100%;
-  background-color: ${p => p.theme.primary};
+  background-color: ${p => p.theme.navbarBackground};
   z-index: 2;
-  align-items: center;
-  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
 `;
 
-const MarginLeft = styled.div`
-  margin-left: auto;
+const LeftSection = styled.div`
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+
+  nav {
+    margin-left: 2rem;
+  }
 `;
+const RightSection = styled.div`
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+`;
+
 export default function MenuAppBar() {
   return (
     <Wrapper>
-      <Typography variant="h6" inverted>
-        My App
-      </Typography>
-      <MarginLeft>
-        <Switch />
-      </MarginLeft>
+      <PageWrapper
+        maxWidth="lg"
+        style={{
+          display: 'flex',
+        }}
+      >
+        <LeftSection>
+          <Logo />
+          <MainNav />
+        </LeftSection>
+
+        <RightSection>
+          <Item>SignIn</Item>
+          <Item>SignOut</Item>
+          <Switch />
+        </RightSection>
+      </PageWrapper>
     </Wrapper>
   );
 }

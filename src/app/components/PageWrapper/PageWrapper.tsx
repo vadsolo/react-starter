@@ -1,8 +1,6 @@
 import styled from 'styled-components';
+import Container from '@material-ui/core/Container';
 
-export const PageWrapper = styled.div`
-  width: 960px;
-  margin: 0 auto;
+export const PageWrapper = styled(Container)`
   padding: 0 1.5rem;
-  box-sizing: content-box;
 `;

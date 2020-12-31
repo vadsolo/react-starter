@@ -11,9 +11,32 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <PageWrapper>
+      <PageWrapper maxWidth="lg">
         <Input placeholder="Enter some text"></Input>
-        <Button>Test</Button>
+        <Button style={{ marginLeft: 10 }}>Submit</Button>
+
+        <Button style={{ marginLeft: 10 }} warning>
+          Cancel
+        </Button>
+        <Button style={{ marginLeft: 10 }} danger>
+          Cancel
+        </Button>
+        <Button style={{ marginLeft: 10 }} success>
+          Cancel
+        </Button>
+        <Button style={{ marginLeft: 10 }} outline>
+          Submit
+        </Button>
+
+        <Button style={{ marginLeft: 10 }} warning outline>
+          Cancel
+        </Button>
+        <Button style={{ marginLeft: 10 }} danger outline>
+          Cancel
+        </Button>
+        <Button style={{ marginLeft: 10 }} success outline>
+          Cancel
+        </Button>
         <ExampleRequest />
         <ExampleAPI />
       </PageWrapper>

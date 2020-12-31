@@ -45,6 +45,7 @@ export const colors = {
     300: '#9BB1FF',
     400: '#788BFF',
     500: '#5465FF',
+    600: '#888CD8',
   },
   violet: {
     100: '#DEC0F1',

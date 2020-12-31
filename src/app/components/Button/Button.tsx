@@ -1,26 +1,112 @@
 import ButtonMUI from '@material-ui/core/Button';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { fade } from '@material-ui/core/styles';
 
-export const Button = styled(ButtonMUI)`
-  box-shadow: none;
-  text-transform: none;
+interface ButtonProps {
+  danger?: boolean;
+  warning?: boolean;
+  success?: boolean;
+
+  primary?: boolean;
+  outline?: boolean;
+
+  disabled?: boolean;
+}
+
+const makeStyles = ({
+  mainColor,
+  hoverColor,
+  borderColor,
+  outline,
+}: {
+  mainColor: string;
+  hoverColor: string;
+  borderColor: string;
+  outline?: boolean;
+}) => {
+  if (outline) {
+    return css`
+      background: transparent;
+      border: 1px solid ${mainColor};
+      color: ${mainColor};
+      &:hover {
+        color: #fff;
+        background-color: ${mainColor};
+        border-color: ${borderColor};
+        box-shadow: none;
+      }
+      &:active {
+        color: ${mainColor};
+        box-shadow: none;
+        background-color: ${mainColor};
+        border-color: ${borderColor};
+      }
+      &:focus {
+        box-shadow: ${p => fade(mainColor, 0.3)} 0 0 0 0.2rem;
+      }
+    `;
+  }
+
+  return css`
+    background: ${mainColor};
+
+    &:hover {
+      background-color: ${hoverColor};
+      border-color: ${borderColor};
+      box-shadow: none;
+    }
+    &:active {
+      box-shadow: none;
+      background-color: ${hoverColor};
+      border-color: ${borderColor};
+    }
+    &:focus {
+      box-shadow: ${p => fade(hoverColor, 0.3)} 0 0 0 0.2rem;
+    }
+  `;
+};
+
+export const Button = styled(ButtonMUI)<ButtonProps>`
   color: #fff;
-  padding: 6px 12px;
-  border: 1px solid;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.2rem;
   line-height: 1.5;
-  background-color: ${p => p.theme.primary};
-  border-color: ${p => p.theme.primary};
-  &:hover {
-    background-color: ${p => p.theme.primary};
-    border-color: ${p => p.theme.primaryBorder};
-    box-shadow: none;
-  }
-  &:active {
-    box-shadow: none;
-    background-color: ${p => p.theme.primary};
-    border-color: ${p => p.theme.primaryBorder};
-  }
-  &:focus {
-    box-shadow: 0 0 0 0.2rem ${p => p.theme.primaryBorder};
-  }
+  text-transform: uppercase;
+
+  ${({ outline, theme, warning, danger, success, primary }) => {
+    if (warning) {
+      return makeStyles({
+        mainColor: theme.warningPrimary,
+        hoverColor: theme.warningHover,
+        borderColor: theme.warningBorder,
+        outline,
+      });
+    }
+
+    if (danger) {
+      return makeStyles({
+        mainColor: theme.dangerPrimary,
+        hoverColor: theme.dangerHover,
+        borderColor: theme.dangerBorder,
+        outline,
+      });
+    }
+    if (success) {
+      return makeStyles({
+        mainColor: theme.successPrimary,
+        hoverColor: theme.successHover,
+        borderColor: theme.successBorder,
+        outline,
+      });
+    }
+    if (primary || (!danger && !success && !warning && !primary)) {
+      return makeStyles({
+        mainColor: theme.primary,
+        hoverColor: theme.primaryHover,
+        borderColor: theme.primaryBorder,
+        outline,
+      });
+    }
+    return ``;
+  }}
 `;

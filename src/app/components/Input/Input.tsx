@@ -6,13 +6,14 @@ export const Input = styled(InputBase)`
   input {
     color: ${p => p.theme.text};
     position: 'relative';
-    border: 1px solid ${p => p.theme.inputBorder};
+    border: 1px solid ${p => p.theme.primaryBorder};
     border-radius: 4px;
     padding: 10px 12px;
     transition: 0.3s box-shadow, border-color;
+    background-color: ${p => p.theme.inputBackground};
     &:focus {
-      box-shadow: ${p => fade(p.theme.primary, 0.25)} 0 0 0 0.2rem;
-      border-color: ${p => p.theme.primary};
+      box-shadow: ${p => fade(p.theme.primary, 0.2)} 0 0 0 0.2rem;
+      border-color: ${p => p.theme.primaryBorder};
     }
   }
 `;
