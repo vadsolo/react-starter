@@ -2,8 +2,6 @@ import React, { ReactElement } from 'react';
 
 import styled from 'styled-components';
 
-interface Props {}
-
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -17,7 +15,7 @@ const LogoImg = styled.img`
 const AppName = styled.h3`
   font-weight: 900;
 `;
-function Logo({}: Props): ReactElement {
+function Logo(): ReactElement {
   return (
     <LogoWrapper>
       <LogoImg src="/world.svg" />

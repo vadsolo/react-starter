@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from '../Switch/Switch';
-import { StyleConstants } from 'styles/StyleConstants';
+
 import { PageWrapper } from '../PageWrapper/PageWrapper';
 import MainNav from '../Nav/Nav';
 import { Item } from '../Nav/Item';

@@ -7,9 +7,7 @@ const Wrapper = styled.nav`
   align-items: center;
 `;
 
-interface Props {}
-
-function Nav({}: Props): ReactElement {
+function Nav(): ReactElement {
   return (
     <Wrapper>
       <Item>Main</Item>
