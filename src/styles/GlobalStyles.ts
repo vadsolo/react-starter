@@ -39,4 +39,8 @@ export const GlobalStyle = createGlobalStyle`
     width: 1.5rem;
     height: 1.5rem;
   }
+  .MuiPaper-root {
+    background-color: ${props => props.theme.boxBackgroundLighter};
+    color: ${props => props.theme.selectPreviewText};
+  }
 `;

@@ -26,11 +26,14 @@ const lightTheme = {
 
   background: colors.lightgray[100],
   boxBackground: colors.lightgray[300], // or 400,
+  boxBackgroundLighter: colors.lightgray[200],
 
   inputBackground: colors.white,
   inputBorder: colors.lightgray[500],
   inputText: colors.gray[600],
   inputPlaceholder: colors.lightgray[500],
+
+  selectPreviewText: colors.gray[300],
 
   navbarBackground: colors.lightgray[100],
 };
@@ -61,11 +64,14 @@ const darkTheme: Theme = {
 
   background: colors.black,
   boxBackground: colors.gray[500], // or 500,
+  boxBackgroundLighter: colors.gray[400],
 
   inputBackground: colors.gray[400],
   inputBorder: colors.gray[500],
   inputText: colors.white,
   inputPlaceholder: colors.gray[100],
+
+  selectPreviewText: colors.gray[100],
 
   navbarBackground: colors.gray[500],
 };

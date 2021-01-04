@@ -1,12 +1,12 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { selectTheme } from './selector';
 import { ThemeProvider as OriginalThemeProvider } from 'styled-components';
 
-import { themes } from './themes';
-import { isSystemDark } from './utils';
-
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
+  const theme = useSelector(selectTheme);
   return (
-    <OriginalThemeProvider theme={isSystemDark ? themes.dark : themes.dark}>
+    <OriginalThemeProvider theme={theme}>
       {React.Children.only(props.children)}
     </OriginalThemeProvider>
   );
