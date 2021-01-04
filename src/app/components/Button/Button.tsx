@@ -2,7 +2,7 @@ import ButtonMUI from '@material-ui/core/Button';
 import styled, { css } from 'styled-components';
 import { fade } from '@material-ui/core/styles';
 
-interface ButtonProps {
+export interface ButtonProps {
   danger?: boolean;
   warning?: boolean;
   success?: boolean;
@@ -73,7 +73,14 @@ export const Button = styled(ButtonMUI)<ButtonProps>`
   line-height: 1.5;
   text-transform: uppercase;
 
-  ${({ outline, theme, warning, danger, success, primary }) => {
+  ${({ outline, theme, warning, danger, success, primary, disabled }) => {
+    if (disabled) {
+      return css`
+        background: ${outline ? 'transparent' : theme.disabled};
+        border: 1px solid ${theme.disabled};
+        color: ${theme.disabled};
+      `;
+    }
     if (warning) {
       return makeStyles({
         mainColor: theme.warningPrimary,
@@ -99,7 +106,7 @@ export const Button = styled(ButtonMUI)<ButtonProps>`
         outline,
       });
     }
-    if (primary || (!danger && !success && !warning && !primary)) {
+    if (primary) {
       return makeStyles({
         mainColor: theme.primary,
         hoverColor: theme.primaryHover,
@@ -107,6 +114,12 @@ export const Button = styled(ButtonMUI)<ButtonProps>`
         outline,
       });
     }
-    return ``;
+
+    return makeStyles({
+      mainColor: theme.primary,
+      hoverColor: theme.primaryHover,
+      borderColor: theme.primaryBorder,
+      outline,
+    });
   }}
 `;

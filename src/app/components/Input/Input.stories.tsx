@@ -18,10 +18,5 @@ const Template: Story<ComponentProps<typeof Input>> = args => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  value: 'test22',
+  placeholder: 'Enter some text',
 };
-
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };

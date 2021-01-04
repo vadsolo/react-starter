@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { themes } from '../src/styles/theme/themes';
+import { StylesProvider } from '@material-ui/core/styles';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -35,9 +36,11 @@ export const globalTypes = {
 const withThemeProvider = (Story, context) => {
   const theme = context.globals.theme.toLowerCase();
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <Story {...context} />
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={themes[theme]}>
+        <Story {...context} />
+      </ThemeProvider>
+    </StylesProvider>
   );
 };
 export const decorators = [withThemeProvider];

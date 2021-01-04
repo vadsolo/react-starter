@@ -4,6 +4,7 @@ const lightTheme = {
   primary: colors.aqua[200],
   primaryHover: colors.aqua[300],
   secondary: colors.aqua[200],
+  disabled: colors.gray[100],
 
   dangerPrimary: colors.red[300],
   dangerHover: colors.red[400],
@@ -38,9 +39,10 @@ const darkTheme: Theme = {
   primary: colors.aqua[400],
   primaryHover: colors.aqua[200],
   secondary: colors.blue[200],
+  disabled: colors.gray[100],
 
   dangerPrimary: colors.rose[300],
-  dangerHover: colors.red[600],
+  dangerHover: colors.rose[400],
   dangerBorder: colors.rose[100],
 
   warningPrimary: colors.yellow[300],

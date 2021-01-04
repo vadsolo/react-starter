@@ -6,7 +6,7 @@ import { isSystemDark } from './utils';
 
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
   return (
-    <OriginalThemeProvider theme={isSystemDark ? themes.dark : themes.light}>
+    <OriginalThemeProvider theme={isSystemDark ? themes.dark : themes.dark}>
       {React.Children.only(props.children)}
     </OriginalThemeProvider>
   );
