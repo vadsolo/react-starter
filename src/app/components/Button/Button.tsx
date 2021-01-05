@@ -17,11 +17,13 @@ const makeStyles = ({
   mainColor,
   hoverColor,
   borderColor,
+  textColor,
   outline,
 }: {
   mainColor: string;
   hoverColor: string;
   borderColor: string;
+  textColor?: string;
   outline?: boolean;
 }) => {
   if (outline) {
@@ -30,13 +32,12 @@ const makeStyles = ({
       border: 1px solid ${mainColor};
       color: ${mainColor};
       &:hover {
-        color: #fff;
+        color: ${textColor || '#fff'};
         background-color: ${mainColor};
         border-color: ${borderColor};
         box-shadow: none;
       }
       &:active {
-        color: ${mainColor};
         box-shadow: none;
         background-color: ${mainColor};
         border-color: ${borderColor};
@@ -49,7 +50,7 @@ const makeStyles = ({
 
   return css`
     background: ${mainColor};
-
+    color: ${textColor || '#fff'};
     &:hover {
       background-color: ${hoverColor};
       border-color: ${borderColor};
@@ -86,6 +87,7 @@ export const Button = styled(ButtonMUI)<ButtonProps>`
         mainColor: theme.warningPrimary,
         hoverColor: theme.warningHover,
         borderColor: theme.warningBorder,
+        textColor: '#000',
         outline,
       });
     }
