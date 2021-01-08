@@ -11,6 +11,13 @@ export interface ButtonProps {
   outline?: boolean;
 
   disabled?: boolean;
+
+  customColor?: {
+    mainColor: string;
+    hoverColor: string;
+    borderColor: string;
+    textColor?: string;
+  };
 }
 
 const makeStyles = ({
@@ -67,14 +74,26 @@ const makeStyles = ({
   `;
 };
 
-export const Button = styled(ButtonMUI)<ButtonProps>`
+export const Button = styled(ButtonMUI).withConfig({
+  shouldForwardProp: prop =>
+    !['danger', 'warning', 'success', 'outline'].includes(prop),
+})<ButtonProps>`
   color: #fff;
   padding: 0.5rem 0.8rem;
   border-radius: 0.2rem;
   line-height: 1.5;
   text-transform: uppercase;
 
-  ${({ outline, theme, warning, danger, success, primary, disabled }) => {
+  ${({
+    outline,
+    theme,
+    warning,
+    danger,
+    success,
+    primary,
+    disabled,
+    customColor,
+  }) => {
     if (disabled) {
       return css`
         background: ${outline ? 'transparent' : theme.disabled};
@@ -116,7 +135,15 @@ export const Button = styled(ButtonMUI)<ButtonProps>`
         outline,
       });
     }
-
+    if (customColor) {
+      return makeStyles({
+        mainColor: customColor.mainColor,
+        hoverColor: customColor.hoverColor,
+        borderColor: customColor.borderColor,
+        textColor: customColor.textColor,
+        outline,
+      });
+    }
     return makeStyles({
       mainColor: theme.primary,
       hoverColor: theme.primaryHover,

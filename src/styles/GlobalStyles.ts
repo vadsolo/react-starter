@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  p,h1,h2,h3,h4,h5 {
+  p,h1,h2,h3,h4,h5, li {
     color: ${p => p.theme.text};
   }
 
